@@ -13,6 +13,7 @@ import ActivityLogView from './components/Pages/ActivityLog/ActivityLog.vue'
 import knowledgeRepoView from './components/Pages/knowledgeRepo/knowledgeRepo.vue'
 import ActivityLogItemView from './components/Pages/ActivityLog/ActivityLogItem.vue'
 import knowledgeRepoItemView from './components/Pages/knowledgeRepo/knowledgeRepoItem.vue'
+import RoutesView from './components/Pages/Utils/Routes.vue'
 
 // Routes
 const routes = [
@@ -83,8 +84,13 @@ const routes = [
       }, {
         path: 'knowledgerepoItem/:id',
         component: knowledgeRepoItemView,
-        name: 'knowledgeRepoItemView',
+        name: 'knowledgeRepoItemView By Id',
         meta: {description: 'Here is possible to check the knowledge repo Item'}
+      }, {
+        path: 'routes',
+        component: RoutesView,
+        name: 'RoutesView',
+        meta: {description: 'Here is possible to check the website routes '}
       }
     ]
   }, {
