@@ -28,6 +28,12 @@ export default {
     return axios.get(url)
           // get data
           .then(x => x.data)
+  },
+  deleteById (id) {
+    const url = `${BASE_URL}/api/knowledgeRepo/deleteById/` + id
+    return axios.delete(url)
+          // get data
+          .then(x => x.data)
   }
 
 }

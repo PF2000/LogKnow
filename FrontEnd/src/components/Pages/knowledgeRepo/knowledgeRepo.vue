@@ -6,7 +6,7 @@
       <knowledgeRepoListItem v-for="(item, index) in this.knowledgeItemList"
         :knowledgeListItem="item"
         :key= "item"
-        v-on:removeknowledgeItem="removeknowledgeItem(index)" >
+        v-on:removeknowledgeItem="removeknowledgeItem(index,item)" >
       </knowledgeRepoListItem>
     </div>
     <div class="row">
