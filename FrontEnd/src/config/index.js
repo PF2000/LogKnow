@@ -1,5 +1,5 @@
 export default {
-  serverURI: '',
+  serverURI: 'http://localhost:3000',
   fixedLayout: false,
   hideLogoOnMobile: false
 }

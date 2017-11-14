@@ -1,6 +1,7 @@
 import * as axios from 'axios'
+import config from '../config'
 
-const BASE_URL = 'http://localhost:3000'
+const BASE_URL = config.serverURI // 'http://localhost:3000'
 
 // export default class KnowledgeRepo {
 export default {
