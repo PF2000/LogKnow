@@ -1,6 +1,5 @@
 <template>
   <section class="content" >
-    {{ knowledgeItem }}
       <div class="row">
         <div class="col-sm-12">
           <div class="box box-info">
@@ -14,15 +13,7 @@
                   Tags:
                   </label>
                   <div class="col-sm-10">
-                    <multiselect
-                      v-model="knowledgeItem.OptionsTagsSelected"
-                      :options="OptionsTags"
-                      :multiple="true"
-                      :taggable="true"
-                      @tag="addTag"
-                      tag-placeholder="Add this as new tag"
-                      >
-                    </multiselect>
+                    <vSelect v-model="knowledgeItem.OptionsTagsSelected" multiple pushTags taggable :closeOnSelect="false" :options="OptionsTags"></vSelect>
                   </div>
                 </div>
                 <!-- Title -->
@@ -84,7 +75,7 @@
 <script>
 
 import { VueEditor } from 'vue2-editor'
-import Multiselect from 'vue-multiselect'
+import vSelect from 'vue-select'
 import KnowledgeRepo from '../../../api/knowledgeRepo.service.js'
 import ResponseMessages from '../Utils/ResponseMessages'
 
@@ -147,8 +138,8 @@ export default {
   },
   components: {
     VueEditor: VueEditor,
-    Multiselect: Multiselect,
-    ResponseMessages: ResponseMessages
+    ResponseMessages: ResponseMessages,
+    vSelect: vSelect
   }
 }
 </script>

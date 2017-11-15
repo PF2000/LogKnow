@@ -1,7 +1,10 @@
 <template>
   <!-- Main content -->
   <section class="content">
-    {{ knowledgeItemList }}
+    <div class="row">
+      <SearchItem v-on:NewSeachItems="NewSeachItems"></SearchItem>
+    </div>
+
     <div class="row">
       <knowledgeRepoListItem v-for="(item, index) in this.knowledgeItemList"
         :knowledgeListItem="item"
@@ -25,6 +28,7 @@
 <script>
 import knowledgeRepoListItem from './knowledgeRepoListItem'
 import KnowledgeRepo from '../../../api/knowledgeRepo.service.js'
+import SearchItem from '../Search/SearchItem.vue'
 
 export default {
   data () {
@@ -43,6 +47,10 @@ export default {
     removeknowledgeItem (index) {
       var self = this
       self.knowledgeItemList.splice(index, 1)
+    },
+    NewSeachItems (itemsSearch) {
+      var self = this
+      self.knowledgeItemList = itemsSearch
     }
   },
   created () {
@@ -61,7 +69,8 @@ export default {
      })
   },
   components: {
-    knowledgeRepoListItem: knowledgeRepoListItem
+    knowledgeRepoListItem: knowledgeRepoListItem,
+    SearchItem: SearchItem
   }
 }
 </script>

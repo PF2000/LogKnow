@@ -1,11 +1,11 @@
 <template>
   <div class="col-md-6">
      <!-- general form elements -->
-       <div class="box box-primary">
+       <div class="box box-success box-solid">
          <div class="box-header with-border">
            <h3 class="box-title">{{ knowledgeListItem.title }}</h3>
-           <div class="col-xs-1 pull-right">
-               <button @click="remove" type="button" class="btn btn-danger fa fa-times" ></button>
+           <div class="box-tools pull-right">
+               <button @click="remove" type="button" class="btn btn-box-tool fa fa-times" ></button>
            </div>
          </div>
          <!-- /.box-header -->
@@ -13,8 +13,15 @@
            <router-link  :to="{ path: '/knowledgeRepoItem/' + knowledgeListItem._id }" >
              <div class="form-group">
                <label for="exampleInputEmail1">Tags</label>
-               <vSelect v-model="knowledgeListItem.OptionsTagsSelected" multiple :options="knowledgeListItem.OptionsTagsSelected"></vSelect>
+               <p>
+                 <h3>
+                    <span class="label label-warning" style="margin-left:3px" v-for="item in knowledgeListItem.OptionsTagsSelected">
+                        {{  item }}
+                    </span>
+                  </h3>
+               </p>
              </div>
+             <hr />
              <div class="form-group">
                <label for="exampleInputPassword1">Summary</label>
                <textarea type="input" class="form-control" v-model="knowledgeListItem.summary" rows="2" ></textarea>
@@ -26,7 +33,6 @@
 </template>
 
 <script>
-import vSelect from 'vue-select'
 import KnowledgeRepo from '../../../api/knowledgeRepo.service.js'
 
 export default {
@@ -49,7 +55,7 @@ export default {
          // Updates the id on the CLientSide
          self.serviceMessages = x
          // to remove from the list
-         this.$emit('removeknowledgeItem')
+         self.$emit('removeknowledgeItem')
        })
        .catch(err => {
          self.serviceMessages = {
@@ -61,9 +67,6 @@ export default {
   },
   created () {
 
-  },
-  components: {
-    vSelect: vSelect
   }
 }
 </script>

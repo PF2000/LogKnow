@@ -30,6 +30,13 @@ export default {
           // get data
           .then(x => x.data)
   },
+  selectByTag (tag) {
+    console.log(tag)
+    const url = `${BASE_URL}/api/knowledgeRepo/getByTag`
+    return axios.post(url, tag)
+          // get data
+          .then(x => x.data)
+  },
   deleteById (id) {
     const url = `${BASE_URL}/api/knowledgeRepo/deleteById/` + id
     return axios.delete(url)
