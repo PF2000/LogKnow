@@ -1,0 +1,18 @@
+[Unit]
+Description=LogKnow - To Log Things
+
+[Service]
+User=root
+Group=root
+ExecStart=/usr/bin/node /opt/LongKnow/main.js
+WorkingDirectory=/opt/LogKnow
+Restart=always
+  # Restart service after 10 seconds if node service crashes
+  RestartSec=10
+ # Output to syslog
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=LogKnow
+
+[Install]
+WantedBy=multi-user.target

@@ -1,15 +1,15 @@
 import * as axios from 'axios'
+// import config from '../config'
 
-const BASE_URL = 'http://localhost:3000'
+// const BASE_URL = config.serverURI // 'http://localhost:3000'
 
-function upload (formData) {
-  const url = `${BASE_URL}/photos/upload`
-  return axios.post(url, formData)
-        // get data
-        .then(x => x.data)
-        // add url field
-        .then(x => x.map(img => Object.assign({},
-            img, { url: `${BASE_URL}/images/${img.id}` })))
+export default {
+
+  uploadFile (formData) {
+    const url = '/api/uploadFile'
+    return axios.post(url, formData)
+          // get data
+          .then(x => x.data)
+  }
+
 }
-
-export { upload }

@@ -14,6 +14,7 @@ import knowledgeRepoView from './components/Pages/knowledgeRepo/knowledgeRepo.vu
 import ActivityLogItemView from './components/Pages/ActivityLog/ActivityLogItem.vue'
 import knowledgeRepoItemView from './components/Pages/knowledgeRepo/knowledgeRepoItem.vue'
 import RoutesView from './components/Pages/Utils/Routes.vue'
+import uploadFileView from './components/Pages/Upload/UploadFiles.vue'
 
 // Routes
 const routes = [
@@ -91,6 +92,11 @@ const routes = [
         component: RoutesView,
         name: 'RoutesView',
         meta: {description: 'Here is possible to check the website routes '}
+      }, {
+        path: 'uploadFile',
+        component: uploadFileView,
+        name: 'uploadFileView',
+        meta: {description: 'Here is possible to Upload Files '}
       }
     ]
   }, {
