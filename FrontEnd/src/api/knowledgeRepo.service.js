@@ -37,6 +37,12 @@ export default {
           // get data
           .then(x => x.data)
   },
+  selectAllTags () {
+    const url = '/api/knowledgeRepo/getAllTags'
+    return axios.get(url)
+          // get data
+          .then(x => x.data)
+  },
   deleteById (id) {
     const url = '/api/knowledgeRepo/deleteById/' + id
     return axios.delete(url)

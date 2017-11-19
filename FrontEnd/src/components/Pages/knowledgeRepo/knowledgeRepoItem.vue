@@ -90,7 +90,7 @@ export default {
         comments: '',
         OptionsTagsSelected: []
       },
-      OptionsTags: ['css', 'xml', 'gif'],
+      OptionsTags: [],
       serviceMessages: {
         status: '',
         message: ''
@@ -121,6 +121,7 @@ export default {
   },
   created () {
     var self = this
+    // Gets the item if exists
     if (self.$route.params.id !== undefined) {
       KnowledgeRepo.selectById(self.$route.params.id)
        .then(x => {
@@ -135,6 +136,21 @@ export default {
          }
        })
     }
+  },
+  beforeCreate () {
+    var self = this
+    KnowledgeRepo.selectAllTags()
+      .then(x => {
+        // Updates the id on the ClientSide
+        self.OptionsTags = x.message.objBiz
+        self.serviceMessages = x
+      })
+      .catch(err => {
+        self.serviceMessages = {
+          status: false,
+          message: { message: err.toString() }
+        }
+      })
   },
   components: {
     VueEditor: VueEditor,
