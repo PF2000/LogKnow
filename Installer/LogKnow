@@ -4,7 +4,7 @@ Description=LogKnow - To Log Things
 [Service]
 User=root
 Group=root
-ExecStart=/usr/bin/node /opt/LongKnow/main.js
+ExecStart=/usr/bin/node /opt/LogKnow/main.js
 WorkingDirectory=/opt/LogKnow
 Restart=always
   # Restart service after 10 seconds if node service crashes
